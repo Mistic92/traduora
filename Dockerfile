@@ -9,6 +9,8 @@ WORKDIR /opt/traduora
 COPY bin bin
 COPY api api
 COPY webapp webapp
+RUN chmod +x bin/build.sh
+RUN chmod +x bin/install-deps.sh
 RUN bin/build.sh
 
 # Runtime stage
@@ -19,6 +21,7 @@ WORKDIR /opt/traduora
 COPY --from=builder /opt/traduora/dist/ /opt/traduora/
 
 COPY docker-entrypoint.sh .
+RUN chmod +x docker-entrypoint.sh
 
 EXPOSE 8080
 
