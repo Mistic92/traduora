@@ -45,7 +45,7 @@ export async function signupTestUser(app: INestApplication, email: string = 'e2e
 export async function createTestProject(app: INestApplication, user: TestingUser): Promise<TestingProject> {
   const res = await request(app.getHttpServer())
     .post('/api/v1/projects')
-    .set('Authorization', `Bearer ${user.accessToken}`)
+    .set('x-y', `Bearer ${user.accessToken}`)
     .send({
       name: 'My test project',
     });
