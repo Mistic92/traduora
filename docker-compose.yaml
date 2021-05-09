@@ -1,7 +1,8 @@
 version: '3'
 services:
   traduora:
-    image: traduora/traduora:latest
+    image: eu.gcr.io/yosh-internal/traduora
+    build: .
     ports:
      - "8080:8080"
     environment:
